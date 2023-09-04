@@ -1,0 +1,39 @@
+<div class="container">
+  <div id="login-box">
+    <div class="left">
+      <h1 class="text-secondary">Login</h1>
+
+      <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+        <input type="text" name="email" class="form-control" formControlName="email" placeholder="E-mail" />
+        <div class="text-danger" *ngIf="submitted || loginForm.controls['email']?.invalid && loginForm.controls['email']?.touched">
+          <div *ngIf="loginForm.controls['email']?.errors?.['required']">
+            Email is required
+          </div>
+          <div *ngIf="loginForm.controls['email']?.errors?.['email']">
+            Enter valid email
+          </div>
+        </div>
+
+        <input type="password" name="password" class="form-control" formControlName="password" placeholder="Password" />
+        <div class="text-danger" *ngIf="submitted || loginForm.controls['password']?.invalid && loginForm.controls['password']?.touched">
+          <div *ngIf="loginForm.controls['password'].errors?.['required']">
+            Password is required
+          </div>
+        </div>
+
+        <input type="submit" name="signup_submit" value="Login" />&nbsp;
+        <span (click)="toSignup()">
+          Not have account? Create account
+        </span>
+      </form>
+    </div>
+
+    <div class="right">
+      <span class="loginwith text-secondary">Sign in with<br />social network</span>
+
+      <button class="social-signin facebook">Log in with facebook</button>
+      <button class="social-signin twitter">Log in with Twitter</button>
+      <button class="social-signin google">Log in with Google+</button>
+    </div>
+  </div>
+</div>

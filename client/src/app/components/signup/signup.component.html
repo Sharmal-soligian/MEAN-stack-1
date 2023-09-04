@@ -1,0 +1,52 @@
+<div class="container">
+  <div id="login-box">
+    <div class="left">
+      <h1 class="text-secondary">Create Account</h1>
+
+      <form [formGroup]="signUpForm" (ngSubmit)="signupSubmit()">
+        <input type="text" name="username" formControlName="username" class="form-control" placeholder="Username" />
+        <div class="text-danger" *ngIf="submitted || signUpForm.controls['username']?.invalid && signUpForm.controls['username'].touched">
+          <div *ngIf="signUpForm.controls['username']?.errors?.['required']">UserName is required</div>
+        </div>
+
+        <input type="text" name="name" formControlName="name" class="form-control" placeholder="Name" />
+        <div class="text-danger" *ngIf="submitted || signUpForm.controls['name']?.invalid && signUpForm.controls['name'].touched">
+          <div *ngIf="signUpForm.controls['name']?.errors?.['required']">Name is required</div>
+        </div>
+
+        <input type="text" name="contact" formControlName="contact" class="form-control" placeholder="Contact" />
+        <div class="text-danger" *ngIf="submitted || signUpForm.controls['contact']?.invalid && signUpForm.controls['contact'].touched">
+          <div *ngIf="signUpForm.controls['contact']?.errors?.['required']">Contact is required</div>
+        </div>
+
+        <input type="text" name="email" formControlName="email" class="form-control" placeholder="E-mail" />
+        <div class="text-danger" *ngIf="submitted || signUpForm.controls['email']?.invalid && signUpForm.controls['email'].touched">
+          <div *ngIf="signUpForm.controls['email']?.errors?.['required']">Email is required</div>
+        </div>
+
+        <input type="password" name="password" formControlName="password" class="form-control" placeholder="Password" />
+        <div class="text-danger" *ngIf="submitted || signUpForm.controls['password']?.invalid && signUpForm.controls['password'].touched">
+          <div *ngIf="signUpForm.controls['password']?.errors?.['required']">Password is required</div>
+        </div>
+
+        <input type="password" name="confirmp" formControlName="confirmP" class="form-control" placeholder="Retype password" />
+        <div class="text-danger" *ngIf="submitted || signUpForm.controls['confirmP']?.invalid && signUpForm.controls['confirmP'].touched">
+          <div *ngIf="signUpForm.controls['confirmP']?.errors?.['required']">Confirm password is required</div>
+        </div>
+
+        <button class="btn btn-success" type="submit">Create account</button>
+        <span (click)="toLogin()" class="text-primary" style="cursor: pointer;">
+          Already have an account?
+        </span>
+      </form>
+    </div>
+
+    <div class="right">
+      <span class="loginwith text-secondary">Sign in with<br />social network</span>
+
+      <button class="social-signin facebook">Log in with facebook</button>
+      <button class="social-signin twitter">Log in with Twitter</button>
+      <button class="social-signin google">Log in with Google+</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="nav navbar-nav">
+        <a class="navbar-brand" [routerLink]="['/dashboard']">Teachers List</a>
+        <a class="nav-item nav-link" [routerLink]="['/dashboard/create']">Create teacher</a>
+    </div>
+</nav>
+
+<div *ngIf="teachers?.length; else noTeachers">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name of Teacher</th>
+        <th>Experience</th>
+        <th>Previous Employer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of teachers; let i = index">
+        <td>{{ teacher.name }}</td>
+        <td>{{ teacher.experience }}</td>
+        <td>{{ teacher.previousEmployer }}</td>
+        <td>
+          <a [routerLink]="['edit', teacher?._id]" class="btn btn-info">Edit</a>&nbsp;
+          <a href="javascript:void(0)" class="btn btn-danger" (click)="deleteTeacher(teacher?._id)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noTeachers>
+  No Teachers for now
+</ng-template>
+
+<router-outlet></router-outlet>

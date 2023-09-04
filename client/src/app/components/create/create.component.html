@@ -1,0 +1,18 @@
+<div class="container">
+  <form [formGroup]="createForm" (ngSubmit)="subCreate()">
+    <div class="mb-3">
+      <label for="" class="form-label">Name</label>
+      <input type="text" name="" id="" class="form-control" formControlName="name" placeholder="" aria-describedby="helpId">
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Experience</label>
+      <input type="text" name="" id="" class="form-control"formControlName="experience" placeholder="" aria-describedby="helpId">
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Previous employer</label>
+      <input type="text" name="" id="" class="form-control" formControlName="previousEmployer" placeholder="" aria-describedby="helpId">
+    </div>
+
+    <button class="btn btn-primary" type="submit">Create</button>
+  </form>
+</div>
